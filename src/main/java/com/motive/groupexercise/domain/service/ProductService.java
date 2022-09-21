@@ -72,8 +72,8 @@ public class ProductService {
      * @param name - new product name
      * @param description - new product description
      */
-    public void insertNewProduct(String name, String description) {
+    public Mono<Product> insertNewProduct(String name, String description) {
         Product product = new Product(name, description);
-        productRepository.save(product).subscribe();
+        return productRepository.save(product);
     }
 }
