@@ -12,4 +12,9 @@ public class ContentController {
         model.addAttribute("name", name);
         return "greeting";
     }
+
+    @GetMapping("/index")
+    public String homepage() {
+        return "index";
+    }
 }
