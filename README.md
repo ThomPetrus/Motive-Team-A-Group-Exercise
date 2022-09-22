@@ -3,6 +3,9 @@
 Group GitHub Exercise for COSC499
 ---
 
+Simple Spring-boot application with no endpoints. Using docker-compose to spin up the server and a mysql instance.
+Flyway is used to migrate the Product table then there are two functions to persist and retrieve the Product entry.
+
 ---
 <h3>Dependencies</h3>
 
@@ -17,18 +20,12 @@ If I missed anything during the set-up and you required something else to run it
 
 <h3>Local Development</h3>
 
-Run
-```
-mvn spring-boot:run 
-```
-
 Run Tests
 ```
 mvn clean test
 ```
 
----
-I've added basic docker-compose.yml if we want to add some other containers for fun to use in local dev for the exercise.
+Use docker-compose to run the DB and app.
 ```
 mvn clean package
 docker-compose up --build
