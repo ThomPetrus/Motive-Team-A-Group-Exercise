@@ -9,5 +9,37 @@
     <h1>This is a placeholder, will replace with proper header later</h1>
     <h2>Products will go below here</h2>
     <p><strong>Hello</strong></p>
+
+    <button onclick="getProductById(1)">GET YA BOI</button>
+    <button onclick="addProduct('test name', 'test description')">PUT YA BOI</button>
 </body>
+<script>
+    const baseUrl = "http://localhost:8080/";
+    const xhr = new XMLHttpRequest();
+
+    function getProductById(id) {
+        const url = baseUrl + "product/" + id;
+
+        xhr.open("GET", url);
+        xhr.onreadystatechange = function () {logResponse(xhr)};
+        xhr.send();
+    }
+
+    function addProduct(name, desc) {
+        const url = baseUrl + "product/insert";
+
+        xhr.open("PUT", url);
+        xhr.onreadystatechange = function () {logResponse(xhr)};
+
+        const data = '{"name":"' + name + '","description":"' + desc + '"}';
+        xhr.send(data);
+    }
+
+    function logResponse(xhr) {
+        if (xhr.readyState === 4) {
+            console.log(xhr.status);
+            console.log(xhr.responseText);
+        }
+    }
+</script>
 </html>
