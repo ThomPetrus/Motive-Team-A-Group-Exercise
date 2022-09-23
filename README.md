@@ -3,7 +3,8 @@
 Group GitHub Exercise for COSC499
 ---
 
-Simple Spring-boot application with no endpoints. Using docker-compose to spin up the server and a mysql instance.
+Simple Spring-boot application with a greeting page and a page to retrieve/persist basic `Product` objects from a SQL DB.
+Using docker-compose to spin up the server and a mysql instance.
 Flyway is used to migrate the Product table then there are two functions to persist and retrieve the Product entry.
 
 ---
