@@ -11,7 +11,7 @@ import reactor.core.publisher.Mono;
 import java.util.List;
 
 @RestController
-@RequestMapping(value="/pain")
+@RequestMapping(value="/data")
 public class Endpoints {
     private ProductService productService;
 
