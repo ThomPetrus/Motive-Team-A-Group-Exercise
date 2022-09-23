@@ -10,12 +10,11 @@ function getProductById(id) {
 }
 
 function addProduct(name, desc) {
-    const url = baseUrl + "product/insert?name=testName&description=testDescription";
+    const url = baseUrl + `product/insert?name=${name}&description=${desc}`;
 
     xhr.open("PUT", url);
     xhr.onreadystatechange = function () {logResponse(xhr)};
-
-    //const data = '{"name":"' + name + '","description":"' + desc + '"}';
+    
     xhr.send();
 }
 
