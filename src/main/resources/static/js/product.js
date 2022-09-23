@@ -1,4 +1,4 @@
-const baseUrl = "http://localhost:8080/";
+const baseUrl = "http://localhost:8010/";
 const xhr = new XMLHttpRequest();
 
 function getProductById(id) {
@@ -10,13 +10,13 @@ function getProductById(id) {
 }
 
 function addProduct(name, desc) {
-    const url = baseUrl + "product/insert";
+    const url = baseUrl + "product/insert?name=testName&description=testDescription";
 
     xhr.open("PUT", url);
     xhr.onreadystatechange = function () {logResponse(xhr)};
 
-    const data = '{"name":"' + name + '","description":"' + desc + '"}';
-    xhr.send(data);
+    //const data = '{"name":"' + name + '","description":"' + desc + '"}';
+    xhr.send();
 }
 
 function logResponse(xhr) {
