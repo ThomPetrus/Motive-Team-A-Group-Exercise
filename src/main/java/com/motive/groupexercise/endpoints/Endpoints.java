@@ -15,13 +15,16 @@ import java.util.List;
 public class Endpoints {
     private ProductService productService;
 
+    // @Autowired makes it so that the productService variable above gets instantiated automatically
     @Autowired
     public Endpoints(ProductService productService) {
         this.productService = productService;
     }
 
+    // Get mapping here is defining the endpoint. These will be relative to /product/data because of the
+    // RequestMapping annotation above and also the context path set in application.properties
     @GetMapping("/{assetID}")
-    public Mono<Product> testRoute(@PathVariable("assetID") String id) {
+    public Mono<Product> getProductByID(@PathVariable("assetID") String id) {
         Mono<Product> product = this.productService.getProductById(id);
         return product;
     }
@@ -33,7 +36,7 @@ public class Endpoints {
     }
 
     @PutMapping(path = "/insert")
-    public Mono<Product> testRoute2(@RequestParam String name, @RequestParam String description) {
+    public Mono<Product> insertProduct(@RequestParam String name, @RequestParam String description) {
         return this.productService.insertNewProduct(name, description);
     }
 }
